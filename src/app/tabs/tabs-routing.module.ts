@@ -13,7 +13,13 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('../pages/tab1/tab1.module').then(m => m.Tab1PageModule)
+          },
+          {
+            path:'agregar/:listaId',
+            loadChildren: () =>
+              import('../pages/agregar/agregar.module').then(m => m.AgregarPageModule)
+            //loadChildren:'../pages/agregar/agregar.module#agregar.module'
           }
         ]
       },
@@ -23,20 +29,17 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
-          }
-        ]
-      },
-      {
-        path: 'tab3',
-        children: [
+              import('../pages/tab2/tab2.module').then(m => m.Tab2PageModule)
+          },
           {
-            path: '',
+            path:'agregar/:listaId',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../pages/agregar/agregar.module').then(m => m.AgregarPageModule)
+            //loadChildren:'../pages/agregar/agregar.module#agregar.module'
           }
         ]
       },
+      
       {
         path: '',
         redirectTo: '/tabs/tab1',
